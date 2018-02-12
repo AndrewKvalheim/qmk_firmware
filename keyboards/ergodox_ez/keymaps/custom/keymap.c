@@ -37,11 +37,12 @@
 
 // Layer names
 #define BAS 0
-#define SYM 1
-#define NUM 2
-#define FUN 3
-#define NAV 4
-#define HDW 5
+#define LSY 1
+#define RSY 2
+#define NUM 3
+#define FUN 4
+#define NAV 5
+#define HDW 6
 
 // Keycode names
 #define _______ KC_TRNS
@@ -55,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Left base
     ___X___,     ___X___,     ___X___,       ___X___,     ___X___, ___X___, ___X___,
     COMPOSE,        CO_Q,        CO_W,          CO_F,        CO_P,    CO_G, KC_HOME,
-    KC_BSPC, ALT_T(CO_A), CTL_T(CO_R), LT(SYM, CO_S), SFT_T(CO_T),    CO_D,
+    KC_BSPC, ALT_T(CO_A), CTL_T(CO_R), LT(LSY, CO_S), SFT_T(CO_T),    CO_D,
     ___X___,        CO_Z,        CO_X,          CO_C,        CO_V,    CO_B,  KC_END,
     ___X___,     ___X___,     ___X___,         ALTGR,     KC_LGUI,
                                                                                      ___X___, KC_PSCR,
@@ -65,15 +66,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Right base
                       ___X___, ___X___,     ___X___,       ___X___,     ___X___,     ___X___, ___X___,
                       KC_PGUP,    CO_J,        CO_L,          CO_U,        CO_Y,     CO_SCLN, ___X___,
-                                  CO_H, SFT_T(CO_N), LT(SYM, CO_E), CTL_T(CO_I), ALT_T(CO_O),  KC_DEL,
+                                  CO_H, SFT_T(CO_N), LT(RSY, CO_E), CTL_T(CO_I), ALT_T(CO_O),  KC_DEL,
                       KC_PGDN,    CO_K,        CO_M,       CO_COMM,      CO_DOT,     CO_SLSH, ___X___,
                                             MO(NAV),       MO(NUM),     ___X___,     ___X___, ___X___,
     KC_RCTL, ___X___,
      KC_ESC,
      KC_ENT, KC_TAB, KC_SPC
   ),
-  [SYM] = LAYOUT_ergodox(
-    // Left symbol
+  [LSY] = LAYOUT_ergodox(
+    // Left symbol (left button held)
+    _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR, ___X___, _______,
+    _______,  KC_DLR,  KC_EQL, _______, KC_MINS, KC_TILD,
+    _______, ___X___, ___X___, KC_HASH, KC_PIPE, ___X___, _______,
+    _______, _______, _______, _______, _______,
+                                                                   _______, _______,
+                                                                            _______,
+                                                          _______, _______, _______,
+
+    // Right symbol (left button held)
+                      _______, _______, _______, _______, _______, _______, _______,
+                      _______, ___X___, KC_LCBR, KC_RCBR,  KC_GRV, KC_CIRC, _______,
+                                 KC_AT, KC_LPRN, KC_RPRN, KC_QUOT, KC_DQUO, _______,
+                      _______, ___X___, KC_LBRC, KC_RBRC, KC_EXLM, KC_BSLS, _______,
+                                        _______, _______, _______, _______, _______,
+    _______, _______,
+    _______,
+    _______, _______, _______
+  ),
+  [RSY] = LAYOUT_ergodox(
+    // Left symbol (right button held)
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR, ___X___, _______,
     _______,  KC_DLR,  KC_EQL, KC_UNDS, KC_MINS, KC_TILD,
@@ -83,10 +105,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                             _______,
                                                           _______, _______, _______,
 
-    // Right symbol
+    // Right symbol (right button held)
                       _______, _______, _______, _______, _______, _______, _______,
                       _______, ___X___, KC_LCBR, KC_RCBR,  KC_GRV, KC_CIRC, _______,
-                                 KC_AT, KC_LPRN, KC_RPRN, KC_QUOT, KC_DQUO, _______,
+                                 KC_AT, KC_LPRN, _______, KC_QUOT, KC_DQUO, _______,
                       _______, ___X___, KC_LBRC, KC_RBRC, KC_EXLM, KC_BSLS, _______,
                                         _______, _______, _______, _______, _______,
     _______, _______,
@@ -160,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Left hardware Colemak
     _______,     _______,     _______,       _______,     _______, _______, _______,
     _______,        KC_Q,        KC_W,          KC_F,        KC_P,    KC_G, _______,
-    _______, ALT_T(KC_A), CTL_T(KC_R), LT(SYM, KC_S), SFT_T(KC_T),    KC_D,
+    _______, ALT_T(KC_A), CTL_T(KC_R), LT(LSY, KC_S), SFT_T(KC_T),    KC_D,
     _______,        KC_Z,        KC_X,          KC_C,        KC_V,    KC_B, _______,
     _______,     _______,     _______,       _______,     _______,
                                                                                      _______, _______,
@@ -170,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Right hardware Colemak
                       _______, _______,     _______,       _______,     _______,     _______, _______,
                       _______,    KC_J,        KC_L,          KC_U,        KC_Y,     KC_SCLN, _______,
-                                  KC_H, SFT_T(KC_N), LT(SYM, KC_E), CTL_T(KC_I), ALT_T(KC_O), _______,
+                                  KC_H, SFT_T(KC_N), LT(RSY, KC_E), CTL_T(KC_I), ALT_T(KC_O), _______,
                       _______,    KC_K,        KC_M,       KC_COMM,      KC_DOT,     KC_SLSH, _______,
                                             _______,       _______,     _______,     _______, _______,
     TG(HDW), _______,
