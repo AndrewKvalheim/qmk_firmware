@@ -37,8 +37,8 @@
 
 // Layer names
 #define BAS 0
-#define LSY 1
-#define RSY 2
+#define LSYM 1
+#define RSYM 2
 #define NUM 3
 #define FUN 4
 #define NAV 5
@@ -50,30 +50,32 @@
 #define ALTGR   KC_RALT
 #define COMPOSE KC_APP
 #define CTLSFTU LSFT(LCTL(CO_U))
+#define LSYM_T(kc) LT(LSYM, kc)
+#define RSYM_T(kc) LT(RSYM, kc)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BAS] = LAYOUT_ergodox(
     // Left base
-    ___X___,     ___X___,     ___X___,       ___X___,     ___X___, ___X___, ___X___,
-    COMPOSE,        CO_Q,        CO_W,          CO_F,        CO_P,    CO_G, KC_HOME,
-    KC_BSPC, ALT_T(CO_A), CTL_T(CO_R), LT(LSY, CO_S), SFT_T(CO_T),    CO_D,
-    ___X___,        CO_Z,        CO_X,          CO_C,        CO_V,    CO_B,  KC_END,
-    ___X___,     ___X___,     ___X___,         ALTGR,     KC_LGUI,
-                                                                                     ___X___, KC_PSCR,
-                                                                                               KC_TAB,
-                                                                             KC_ENT,  KC_ESC,  KC_SPC,
+    ___X___,      ___X___,     ___X___,      ___X___,      ___X___, ___X___, ___X___,
+    COMPOSE,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G, KC_HOME,
+    KC_BSPC, LCTL_T(CO_A), ALT_T(CO_R), LSYM_T(CO_S), LSFT_T(CO_T),    CO_D,
+    ___X___,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,  KC_END,
+    ___X___,      ___X___,     ___X___,        ALTGR,      KC_LGUI,
+                                                                                      ___X___, KC_PSCR,
+                                                                                                KC_TAB,
+                                                                              KC_ENT,  KC_ESC,  KC_SPC,
 
     // Right base
-                      ___X___, ___X___,     ___X___,       ___X___,     ___X___,     ___X___, ___X___,
-                      KC_PGUP,    CO_J,        CO_L,          CO_U,        CO_Y,     CO_SCLN, ___X___,
-                                  CO_H, SFT_T(CO_N), LT(RSY, CO_E), CTL_T(CO_I), ALT_T(CO_O),  KC_DEL,
-                      KC_PGDN,    CO_K,        CO_M,       CO_COMM,      CO_DOT,     CO_SLSH, ___X___,
-                                            MO(NAV),       MO(NUM),     ___X___,     ___X___, ___X___,
+                      ___X___, ___X___,      ___X___,      ___X___,     ___X___,      ___X___, ___X___,
+                      KC_PGUP,    CO_J,         CO_L,         CO_U,        CO_Y,      CO_SCLN, ___X___,
+                                  CO_H, RSFT_T(CO_N), RSYM_T(CO_E), ALT_T(CO_I), RCTL_T(CO_O),  KC_DEL,
+                      KC_PGDN,    CO_K,         CO_M,      CO_COMM,      CO_DOT,      CO_SLSH, ___X___,
+                                             MO(NAV),      MO(NUM),     ___X___,      ___X___, ___X___,
     KC_RCTL, ___X___,
      KC_ESC,
      KC_ENT, KC_TAB, KC_SPC
   ),
-  [LSY] = LAYOUT_ergodox(
+  [LSYM] = LAYOUT_ergodox(
     // Left symbol (left button held)
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR, ___X___, _______,
@@ -94,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,
     _______, _______, _______
   ),
-  [RSY] = LAYOUT_ergodox(
+  [RSYM] = LAYOUT_ergodox(
     // Left symbol (right button held)
     _______, _______, _______, _______, _______, _______, _______,
     _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR, ___X___, _______,
@@ -180,21 +182,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [HDW] = LAYOUT_ergodox(
     // Left hardware Colemak
-    _______,     _______,     _______,       _______,     _______, _______, _______,
-    _______,        KC_Q,        KC_W,          KC_F,        KC_P,    KC_G, _______,
-    _______, ALT_T(KC_A), CTL_T(KC_R), LT(LSY, KC_S), SFT_T(KC_T),    KC_D,
-    _______,        KC_Z,        KC_X,          KC_C,        KC_V,    KC_B, _______,
-    _______,     _______,     _______,       _______,     _______,
-                                                                                     _______, _______,
-                                                                                              _______,
-                                                                            _______, _______, _______,
+    _______,      _______,     _______,      _______,      _______, _______, _______,
+    _______,         KC_Q,        KC_W,         KC_F,         KC_P,    KC_G, _______,
+    _______, LCTL_T(KC_A), ALT_T(KC_R), LSYM_T(KC_S), LSFT_T(KC_T),    KC_D,
+    _______,         KC_Z,        KC_X,         KC_C,         KC_V,    KC_B, _______,
+    _______,      _______,     _______,      _______,      _______,
+                                                                                      _______, _______,
+                                                                                               _______,
+                                                                             _______, _______, _______,
 
     // Right hardware Colemak
-                      _______, _______,     _______,       _______,     _______,     _______, _______,
-                      _______,    KC_J,        KC_L,          KC_U,        KC_Y,     KC_SCLN, _______,
-                                  KC_H, SFT_T(KC_N), LT(RSY, KC_E), CTL_T(KC_I), ALT_T(KC_O), _______,
-                      _______,    KC_K,        KC_M,       KC_COMM,      KC_DOT,     KC_SLSH, _______,
-                                            _______,       _______,     _______,     _______, _______,
+                      _______, _______,      _______,      _______,     _______,      _______, _______,
+                      _______,    KC_J,         KC_L,         KC_U,        KC_Y,      KC_SCLN, _______,
+                                  KC_H, RSFT_T(KC_N), RSYM_T(KC_E), ALT_T(KC_I), RCTL_T(KC_O), _______,
+                      _______,    KC_K,         KC_M,      KC_COMM,      KC_DOT,      KC_SLSH, _______,
+                                             _______,      _______,     _______,      _______, _______,
     TG(HDW), _______,
     _______,
     _______, _______, _______
