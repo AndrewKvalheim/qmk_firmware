@@ -56,14 +56,14 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BAS] = LAYOUT_ergodox(
     // Left base
-    ___X___,      ___X___,     ___X___,      ___X___,      ___X___, ___X___, ___X___,
-    COMPOSE,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G, KC_HOME,
+    ___X___,      ___X___,     ___X___,      ___X___,      ___X___, ___X___,       ___X___,
+    COMPOSE,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G,       KC_HOME,
     KC_BSPC, LCTL_T(CO_A), ALT_T(CO_R), LSYM_T(CO_S), LSFT_T(CO_T),    CO_D,
-    ___X___,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,  KC_END,
+    ___X___,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,        KC_END,
     ___X___,      ___X___,     ___X___,        ALTGR,      KC_LGUI,
-                                                                                      ___X___, KC_PSCR,
-                                                                                                KC_TAB,
-                                                                              KC_ENT,  KC_ESC,  KC_SPC,
+                                                                                            ___X___, KC_PSCR,
+                                                                                                      KC_TAB,
+                                                                            LCTL_T(KC_ENT),  KC_ESC,  KC_SPC,
 
     // Right base
                       ___X___, ___X___,      ___X___,      ___X___,     ___X___,      ___X___, ___X___,
