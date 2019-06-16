@@ -54,13 +54,52 @@
 #define LSYM_T(kc) LT(LSYM, kc)
 #define RSYM_T(kc) LT(RSYM, kc)
 
+enum custom_keycodes {
+  AUTOC_C = SAFE_RANGE,
+  AUTOC_V,
+  AUTOC_X,
+  AUTOC_Z
+};
+
+void tap_hold(keyrecord_t *record, const char *tap, const char *hold) {
+  static uint16_t timer;
+
+  if (record->event.pressed) {
+    timer = timer_read();
+  } else {
+    if (timer_elapsed(timer) < TAPPING_TERM) {
+      send_string(tap);
+    } else {
+      send_string(hold);
+    }
+  }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case AUTOC_C:
+      tap_hold(record, "c", SS_LCTRL("c"));
+      break;
+    case AUTOC_V:
+      tap_hold(record, "v", SS_LCTRL("v"));
+      break;
+    case AUTOC_X:
+      tap_hold(record, "x", SS_LCTRL("x"));
+      break;
+    case AUTOC_Z:
+      tap_hold(record, "z", SS_LCTRL("z"));
+      break;
+  }
+  return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COL] = LAYOUT_ergodox(
     // Left Colemak
     TG(HDW),      ___X___,     ___X___,      ___X___,      ___X___, ___X___, ___X___,
      KC_DEL,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G, KC_HOME,
     KC_BSPC, LSYM_T(CO_A), ALT_T(CO_R), LCTL_T(CO_S), LSFT_T(CO_T),    CO_D,
-     KC_ESC,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,  KC_END,
+     KC_ESC,      AUTOC_Z,     AUTOC_X,      AUTOC_C,      AUTOC_V,    CO_B,  KC_END,
     ___X___,      ___X___,     ___X___,      KC_LGUI,        ALTGR,
                                                                                       ___X___, ___X___,
                                                                                                ___X___,
