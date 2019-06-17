@@ -50,6 +50,8 @@
 #define ___X___ KC_NO
 #define ALTGR   KC_RALT
 #define COMPOSE KC_APP
+#define CTLGUIL LCTL(LGUI(KC_LEFT))
+#define CTLGUIR LCTL(LGUI(KC_RGHT))
 #define CTLSFTU LSFT(LCTL(CO_U))
 #define LSYM_T(kc) LT(LSYM, kc)
 #define RSYM_T(kc) LT(RSYM, kc)
@@ -98,7 +100,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COL] = LAYOUT_ergodox(
     // Left Colemak
-    TG(HDW),      ___X___,     ___X___,      ___X___,      ___X___, ___X___, ___X___,
+    TG(HDW),      ___X___,     ___X___,      CTLGUIL,      CTLGUIR, ___X___, ___X___,
      KC_DEL,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G, KC_HOME,
     KC_BSPC, LSYM_T(CO_A), ALT_T(CO_R), LCTL_T(CO_S), LSFT_T(CO_T),    CO_D,
      KC_ESC,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,  KC_END,
@@ -163,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Left number
     _______, _______, _______, _______, _______, _______, _______,
     _______, ___X___, ___X___, ___X___, ___X___, ___X___, _______,
-    _______, ___X___, ___X___, ___X___, ___X___, ___X___,
+    _______, ___X___, ___X___, ___X___, KC_MINS, ___X___,
     _______, ___X___, ___X___, ___X___, ___X___, ___X___, _______,
     _______, _______, _______, _______, MO(FUN),
                                                                    _______, _______,
