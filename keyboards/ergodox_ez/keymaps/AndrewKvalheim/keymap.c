@@ -56,6 +56,11 @@
 #define LSYM_T(kc) LT(LSYM, kc)
 #define RSYM_T(kc) LT(RSYM, kc)
 
+enum custom_keycodes {
+  ARW_EQ = SAFE_RANGE,
+  ARW_HY
+};
+
 uint16_t autocontrol_pending_key = KC_NO;
 uint16_t autocontrol_timer = 0;
 
@@ -82,6 +87,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   if (record->event.pressed) {
     switch (keycode) {
+      case ARW_EQ:
+        SEND_STRING("=>");
+        break;
+      case ARW_HY:
+        SEND_STRING("->");
+        break;
       case CO_C:
       case CO_V:
       case CO_X:
@@ -122,9 +133,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LSYM] = LAYOUT_ergodox(
     // Left symbol (left button held)
     _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR, ___X___, _______,
-    _______, _______,  KC_EQL, KC_UNDS, KC_MINS, KC_TILD,
-    _______, ___X___, ___X___, KC_HASH, KC_PIPE, ___X___, _______,
+    _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR,  ARW_EQ, _______,
+    _______, _______,  KC_EQL, KC_UNDS, KC_MINS,  ARW_HY,
+    _______, ___X___, ___X___, KC_HASH, KC_PIPE, KC_TILD, _______,
     _______, _______, _______, _______, _______,
                                                                    _______, _______,
                                                                             _______,
@@ -143,9 +154,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [RSYM] = LAYOUT_ergodox(
     // Left symbol (right button held)
     _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR, ___X___, _______,
-    _______,  KC_DLR,  KC_EQL, KC_UNDS, KC_MINS, KC_TILD,
-    _______, ___X___, ___X___, KC_HASH, KC_PIPE, ___X___, _______,
+    _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR,  ARW_EQ, _______,
+    _______,  KC_DLR,  KC_EQL, KC_UNDS, KC_MINS,  ARW_HY,
+    _______, ___X___, ___X___, KC_HASH, KC_PIPE, KC_TILD, _______,
     _______, _______, _______, _______, _______,
                                                                    _______, _______,
                                                                             _______,
