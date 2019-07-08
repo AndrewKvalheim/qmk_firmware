@@ -21,8 +21,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define EE_HANDS
 
 #undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #define RGBLED_NUM 12
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
+
+// Favor fast tapping over fast modifying.
+#define IGNORE_MOD_TAP_INTERRUPT
+#define PERMISSIVE_HOLD
+
+// Hold the modifier, not tapped key when pressed in quick succession.
+#define TAPPING_FORCE_HOLD
+
+// Transition from tapping to modifying sooner.
+#undef TAPPING_TERM
+#define TAPPING_TERM 150
