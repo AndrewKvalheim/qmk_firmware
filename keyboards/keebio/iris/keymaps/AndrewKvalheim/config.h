@@ -36,4 +36,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Transition from tapping to modifying sooner.
 #undef TAPPING_TERM
-#define TAPPING_TERM 150
+#define TAPPING_TERM 250
