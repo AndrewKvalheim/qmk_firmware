@@ -50,8 +50,8 @@
 #define ___X___ KC_NO
 #define ALTGR   KC_RALT
 #define COMPOSE KC_APP
-#define CTLGUIL LCTL(LGUI(KC_LEFT))
-#define CTLGUIR LCTL(LGUI(KC_RGHT))
+#define GUILEFT LGUI(KC_LEFT)
+#define GUIRGHT LGUI(KC_RGHT)
 #define CTLSFTU LSFT(LCTL(CO_U))
 #define LSYM_T(kc) LT(LSYM, kc)
 #define RSYM_T(kc) LT(RSYM, kc)
@@ -191,23 +191,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [COL] = LAYOUT(
-    ___X___,      ___X___,     ___X___,      CTLGUIL,      CTLGUIR, ___X___,                   ___X___,      ___X___,      ___X___,     ___X___,      ___X___, KC_PSCR,
-     KC_DEL,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G,                      CO_J,         CO_L,         CO_U,        CO_Y,      CO_SCLN, ___X___,
+    ___X___,      ___X___,     ___X___,      GUILEFT,      GUIRGHT, ___X___,                   ___X___,      ___X___,      ___X___,     ___X___,      ___X___, KC_PSCR,
+     KC_ESC,         CO_Q,        CO_W,         CO_F,         CO_P,    CO_G,                      CO_J,         CO_L,         CO_U,        CO_Y,      CO_SCLN, COMPOSE,
     KC_BSPC, LSYM_T(CO_A), ALT_T(CO_R), LCTL_T(CO_S), LSFT_T(CO_T),    CO_D,                      CO_H, RSFT_T(CO_N), RCTL_T(CO_E), ALT_T(CO_I), RSYM_T(CO_O),  KC_TAB,
-     KC_ESC,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,  KC_SPC,  KC_ENT,    CO_K,         CO_M,      CO_COMM,      CO_DOT,      CO_SLSH, COMPOSE,
+    ___X___,         CO_Z,        CO_X,         CO_C,         CO_V,    CO_B,  KC_SPC,  KC_ENT,    CO_K,         CO_M,      CO_COMM,      CO_DOT,      CO_SLSH, ___X___,
                                                            KC_LGUI,   ALTGR,  KC_ENT,  KC_SPC, MO(NAV),      MO(NUM)
   ),
   [LSYM] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
     _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR,  ARW_EQ,                   ___X___, KC_LCBR, KC_RCBR,  KC_GRV, KC_CIRC, _______,
-    _______, _______,  KC_EQL, KC_UNDS, KC_MINS,  ARW_HY,                     KC_AT, KC_LPRN, KC_RPRN, KC_QUOT, KC_DQUO, _______,
+     KC_DEL, _______,  KC_EQL, KC_UNDS, KC_MINS,  ARW_HY,                     KC_AT, KC_LPRN, KC_RPRN, KC_QUOT, KC_DQUO, _______,
     _______, ___X___, ___X___, KC_HASH, KC_PIPE, KC_TILD, _______, _______, ___X___, KC_LBRC, KC_RBRC, KC_EXLM, KC_BSLS, _______,
                                         _______, _______, _______, _______, _______, _______
   ),
   [RSYM] = LAYOUT(
     _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
     _______, KC_PERC, KC_PLUS, KC_ASTR, KC_AMPR,  ARW_EQ,                   ___X___, KC_LCBR, KC_RCBR,  KC_GRV, KC_CIRC, _______,
-    _______,  KC_DLR,  KC_EQL, KC_UNDS, KC_MINS,  ARW_HY,                     KC_AT, KC_LPRN, KC_RPRN, KC_QUOT, _______, _______,
+     KC_DEL,  KC_DLR,  KC_EQL, KC_UNDS, KC_MINS,  ARW_HY,                     KC_AT, KC_LPRN, KC_RPRN, KC_QUOT, _______, _______,
     _______, ___X___, ___X___, KC_HASH, KC_PIPE, KC_TILD, _______, _______, ___X___, KC_LBRC, KC_RBRC, KC_EXLM, KC_BSLS, _______,
                                         _______, _______, _______, _______, _______, _______
   ),
